@@ -20,7 +20,10 @@
           "ts": "never"
         }
       ],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": "off",
+    "lines-between-class-members": "off"
   },
   "settings": {
     "import/resolver": {
