@@ -1,21 +1,27 @@
 import { Router } from 'express';
-import Category from '../models/Category';
+import { CategoriesRepository } from '../repositories/CategoriesRepository';
 
 const categoriesRoutes = Router();
-const categories = [];
+const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post('/', (request, response) => {
   const { name, description } = request.body;
 
-  const category = new Category();
+  const categoryAlreadyExists = categoriesRepository.findByName(name);
 
-  /* Em vez de atribuir os valores para as propriedade de uma classe linha a linha,
-  utiliza-se Object.assign() para passar a instância de uma classe, e os valores que serão atribuídos a ela */
-  Object.assign(category, { name, description, created_at: new Date() });
+  if (categoryAlreadyExists) {
+    return response.status(400).json({ error: 'Category already exists.' });
+  }
 
-  categories.push(category);
+  categoriesRepository.create({ name, description });
 
-  return response.status(201).json({ category });
+  return response.status(201).send();
 });
 
-export default categoriesRoutes;
+categoriesRoutes.get('/', (request, response) => {
+  const categories = categoriesRepository.list();
+
+  return response.json(categories);
+});
+
+export { categoriesRoutes };

@@ -23,7 +23,9 @@
     "prettier/prettier": "error",
     "camelcase": "off",
     "@typescript-eslint/camelcase": "off",
-    "lines-between-class-members": "off"
+    "lines-between-class-members": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow":"off"
   },
   "settings": {
     "import/resolver": {
