@@ -20,7 +20,7 @@
           "ts": "never"
         }
       ],
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {"endOfLine": "auto"}],
     "camelcase": "off",
     "@typescript-eslint/camelcase": "off",
     "lines-between-class-members": "off",
