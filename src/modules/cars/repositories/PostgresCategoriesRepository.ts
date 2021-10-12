@@ -1,3 +1,5 @@
+// Classe de teste para exemplificar o conceito de LSP (Liskov Substitution Principle), um dos princípios do SOLID
+// Qualquer classe que implementa a interface ICategoriesRepository será subtipo dessa interface
 import { Category } from '../models/Category';
 import {
   ICategoriesRepository,
