@@ -1,7 +1,7 @@
 import { Category } from '../../models/Category';
-import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '../../repositories/interfaces/ICategoriesRepository';
 
-class GetCategoriesUseCase {
+class ListCategoriesUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
   execute(): Category[] {
@@ -9,4 +9,4 @@ class GetCategoriesUseCase {
   }
 }
 
-export { GetCategoriesUseCase };
+export { ListCategoriesUseCase };
