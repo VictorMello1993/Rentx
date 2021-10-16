@@ -41,6 +41,11 @@ class ImportCategoryUseCase {
           categories.push({ name, description });
         })
         .on('end', () => {
+          /* Ao final da leitura do arquivo, será feita a remoção do mesmo da pasta tmp, 
+          para não precisar dela uma vez que os dados de uma categoria de carro são persistidos no banco de dados.
+          A remoção é feita chamando o método unlink(), da própria biblioteca nativa fs. */
+          fs.promises.unlink(file.path);
+
           resolve(categories);
         })
         .on('error', err => {
