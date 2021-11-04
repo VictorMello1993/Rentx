@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    container_name: rentx
+    ports:
+      - 3333:3333
+    volumes:
+    # Criando um volume passando os arquivos que estão no diretório atual na máquina local para o diretório do container
+      - .:/urs/app 
