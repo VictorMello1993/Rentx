@@ -1,4 +1,4 @@
-import { Category } from '../../models/Category';
+import { Category } from '../../entities/Category';
 import { ISpecificationsRepository } from '../../repositories/interfaces/ISpecificationsRepository';
 
 class ListSpecificationsUseCase {
