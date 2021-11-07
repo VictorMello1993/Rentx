@@ -33,7 +33,9 @@ services:
     
     # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
     depends_on:
-      - database_rentx 
+      - database_rentx
+
+    restart: always
 
 # Volume local onde será armazenado o driver do Postgres
 volumes:
