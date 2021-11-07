@@ -5,11 +5,15 @@ class ImportCategoryController {
   constructor(private importCategoryUseCase: ImportCategoryUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { file } = request;
+    try {
+      const { file } = request;
 
-    await this.importCategoryUseCase.execute(file);
+      await this.importCategoryUseCase.execute(file);
 
-    return response.send();
+      return response.send();
+    } catch (error) {
+      return response.status(400).json({ error: error.message });
+    }
   }
 }
 
