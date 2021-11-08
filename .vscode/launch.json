@@ -4,6 +4,7 @@
   // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    // Local
     {
       "type": "node",
       "request": "attach",
@@ -14,6 +15,18 @@
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
-    }
+    },
+    // Container
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Docker: Attach to Node",
+      "remoteRoot": "/usr/app/",
+      "port": 9229,
+      "address": "localhost",
+      "sourceMapPathOverrides": {
+        "/usr/app/*": "${workspaceRoot}/*" 
+      }
+    },
   ]
 }
