@@ -18,6 +18,8 @@ class UpdateUserAvatarUserCase {
 
     user.avatar = avatar;
 
+    console.log(user.avatar);
+
     await this.usersRepository.create(user);
   }
 }
