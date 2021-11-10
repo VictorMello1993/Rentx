@@ -29,6 +29,12 @@ export async function ensureAuthenticated(request: Request, response: Response, 
       throw new AppError('User does not exist!', 401);
     }
 
+    /* Aqui é preciso sobrescrever a tipagem da biblioteca do Express para declarar a propriedade user que não 
+    existe no Request da biblioteca do Express original. */
+    request.user = {
+      id: user_id,
+    };
+
     next();
   } catch (error) {
     throw new AppError('Invalid token!', 401);
