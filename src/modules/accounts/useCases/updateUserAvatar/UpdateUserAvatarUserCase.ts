@@ -3,7 +3,7 @@ import { IUsersRepository } from '../../repositories/interfaces/IUsersRepository
 
 interface IRequest {
   user_id: string;
-  avatar: string;
+  avatar_file: string;
 }
 
 @injectable()
@@ -13,12 +13,10 @@ class UpdateUserAvatarUserCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute({ user_id, avatar }: IRequest): Promise<void> {
+  async execute({ user_id, avatar_file }: IRequest): Promise<void> {
     const user = await this.usersRepository.findById(user_id);
 
-    user.avatar = avatar;
-
-    console.log(user.avatar);
+    user.avatar = avatar_file;
 
     await this.usersRepository.create(user);
   }
