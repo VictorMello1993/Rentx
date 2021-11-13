@@ -27,7 +27,7 @@ services:
     tty: true  
     volumes:
     # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
-      - .:/urs/app    
+      - .:/usr/app    
     
     # Faz uma ligação entre os containers, de forma que o container de destino (api) tenha informações do container de
     # origem (banco de dados). Dessa forma, o service da api não irá se comunicar através do IP, mas sim pelo nome

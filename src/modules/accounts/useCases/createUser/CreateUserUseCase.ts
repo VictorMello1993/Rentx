@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import { hash } from 'bcrypt';
+import { hash } from 'bcryptjs';
 import { ICreateUserDTO } from '../../DTOs/ICreateUserDTO';
 import { IUsersRepository } from '../../repositories/interfaces/IUsersRepository';
 import { AppError } from '../../../../errors/AppError';
