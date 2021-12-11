@@ -4,7 +4,7 @@
 //     const soma = 2 + 2;
 //     const resultado = 4;
 
-import { AppError } from '@errors/AppError';
+import { AppError } from '@shared/errors/AppError';
 import { CategoriesRepositoryFake } from '@modules/cars/repositories/fakes/CategoriesRepositoryFake';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 

@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import { AppError } from '@errors/AppError';
+import { AppError } from '@shared/errors/AppError';
 import { IUsersRepository } from '@modules/accounts/repositories/interfaces/IUsersRepository';
 
 interface IRequest {
