@@ -19,7 +19,7 @@
         {
           "ts": "never"
         }
-      ],
+    ],    
     "prettier/prettier": ["error", {"endOfLine": "auto"}],
     "camelcase": "off",
     "@typescript-eslint/camelcase": "off",
@@ -28,7 +28,8 @@
     "no-shadow":"off",
     "no-useless-constructor":"off",
     "class-methods-use-this":"off",
-    "no-console": "off"    
+    "no-console": "off",
+    "import/no-extraneous-dependencies": ["error", {"optionalDependencies": false, "peerDependencies": false}]
   },
   "settings": {
     "import/resolver": {

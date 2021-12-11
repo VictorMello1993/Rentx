@@ -4,8 +4,8 @@
 //     const soma = 2 + 2;
 //     const resultado = 4;
 
-import { AppError } from '../../../../errors/AppError';
-import { CategoriesRepositoryFake } from '../../repositories/fakes/CategoriesRepositoryFake';
+import { AppError } from '@errors/AppError';
+import { CategoriesRepositoryFake } from '@modules/cars/repositories/fakes/CategoriesRepositoryFake';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 //     expect(soma).toBe(resultado);

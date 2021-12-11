@@ -1,6 +1,6 @@
-import { AppError } from '../../../../errors/AppError';
-import { ICreateUserDTO } from '../../DTOs/ICreateUserDTO';
-import { UsersRepositoryFake } from '../../repositories/fakes/UsersRepositoryFake';
+import { AppError } from '@errors/AppError';
+import { ICreateUserDTO } from '@modules/accounts/DTOs/ICreateUserDTO';
+import { UsersRepositoryFake } from '@modules/accounts/repositories/fakes/UsersRepositoryFake';
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 
