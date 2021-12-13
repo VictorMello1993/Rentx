@@ -36,7 +36,6 @@
 
 **Requisitos não funcionais**
 * Utilizar o multer para upload dos arquivos.
-* Deve ser possível listar todos os carros.
 
 **Regras de negócio**
 * O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
