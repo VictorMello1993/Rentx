@@ -53,5 +53,6 @@
 * Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
 * Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
 
-**Link dos enpoints**
+## Link dos enpoints
+
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rentx%20-%20Ignite%20Rocketseat&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2Fed3660a8b692828ec6b08f3fe6ab793e%2Fraw%2F7ffe82e67c94b355f68cf801386c92e266aa0697%2FInsomnia_2021-12-13.json)
