@@ -8,7 +8,10 @@ import { ICarsImagesRepository } from '@modules/cars/repositories/interfaces/ICa
 import { ICarsRepository } from '@modules/cars/repositories/interfaces/ICarsRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/interfaces/ICategoriesRepository';
 import { ISpecificationsRepository } from '@modules/cars/repositories/interfaces/ISpecificationsRepository';
+import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
+import { IRentalsRepository } from '@modules/rentals/repositories/interfaces/IRentalsRepository';
 import { container } from 'tsyringe';
+import '@shared/container/providers';
 
 // Injeção de dependência de categorias - ICategoriesRepository
 container.registerSingleton<ICategoriesRepository>('CategoriesRepository', CategoriesRepository);
@@ -24,3 +27,6 @@ container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);
 
 // Injeção de dependência de upload de imagens de carros - ICarsImagesRepository
 container.registerSingleton<ICarsImagesRepository>('CarsImagesRepository', CarsImagesRepository);
+
+// Injeção de dependência de alugueis - IRentalsRepository
+container.registerSingleton<IRentalsRepository>('RentalsRepository', RentalsRepository);
