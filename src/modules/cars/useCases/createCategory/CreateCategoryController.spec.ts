@@ -10,8 +10,6 @@ let connection: Connection;
 describe('Create Category Controller', () => {
   // Para que o teste passe, é preciso primeiro criar um usuário administrador
   beforeAll(async () => {
-    console.log(process.env.NODE_ENV);
-
     connection = await createConnection();
     await connection.runMigrations();
 
