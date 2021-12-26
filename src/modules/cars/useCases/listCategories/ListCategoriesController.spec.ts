@@ -1,13 +1,12 @@
 import { app } from '@shared/infra/http/app';
-import request from 'supertest';
-import createConnection from '@shared/infra/typeorm';
-import { Connection } from 'typeorm';
 import { hash } from 'bcryptjs';
+import request from 'supertest';
+import { Connection, createConnection } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 let connection: Connection;
 
-describe('Create Category Controller', () => {
+describe('List categories', () => {
   // Para que o teste passe, é preciso primeiro criar um usuário administrador
   beforeAll(async () => {
     connection = await createConnection();
@@ -27,7 +26,7 @@ describe('Create Category Controller', () => {
     await connection.close();
   });
 
-  it('Should be able to create a new category', async () => {
+  it('Should de able to list all categories', async () => {
     // Logando como usuário admin
     const responseToken = await request(app).post('/sessions').send({
       email: 'admin@rentx.com.br',
@@ -39,7 +38,7 @@ describe('Create Category Controller', () => {
     const { token } = responseToken.body;
 
     // Cadastrando categoria
-    const response = await request(app)
+    await request(app)
       .post('/categories')
       .send({
         name: 'Category supertest',
@@ -47,29 +46,14 @@ describe('Create Category Controller', () => {
       })
       .set({ Authorization: `Bearer ${token}` });
 
-    expect(response.status).toBe(201);
-  });
+    // Listando categoria
+    const response = await request(app).get('/categories');
 
-  it('Should not be able to create a new category with the name exists', async () => {
-    // Logando como usuário admin
-    const responseToken = await request(app).post('/sessions').send({
-      email: 'admin@rentx.com.br',
-      password: 'admin',
-    });
+    console.log(response.body);
 
-    console.log(responseToken.body);
-
-    const { token } = responseToken.body;
-
-    // Cadastrando categoria
-    const response = await request(app)
-      .post('/categories')
-      .send({
-        name: 'Category supertest',
-        description: 'Category Supertest desc',
-      })
-      .set({ Authorization: `Bearer ${token}` });
-
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(200);
+    expect(response.body.length).toBe(1);
+    expect(response.body[0]).toHaveProperty('id');
+    expect(response.body[0].name).toEqual('Category supertest');
   });
 });
