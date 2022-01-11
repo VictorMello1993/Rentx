@@ -5,6 +5,7 @@ import { IRentalsRepository } from '@modules/rentals/repositories/interfaces/IRe
 import { AppError } from '@shared/errors/AppError';
 import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
 import { inject, injectable } from 'tsyringe';
+import { ICarsRepository } from '@modules/cars/repositories/interfaces/ICarsRepository';
 
 dayjs.extend(utc);
 
@@ -22,6 +23,9 @@ class CreateRentalUseCase {
 
     @inject('DayjsDateProvider')
     private dateProvider: IDateProvider,
+
+    @inject('CarsRepository')
+    private carsRepository: ICarsRepository,
   ) {}
 
   async execute({ user_id, car_id, expected_return_date }: IRequest): Promise<Rental> {
@@ -46,6 +50,8 @@ class CreateRentalUseCase {
     }
 
     const rental = this.rentalsRepository.create({ user_id, car_id, expected_return_date });
+
+    await this.carsRepository.updateAvailable(car_id, false);
 
     return rental;
   }
