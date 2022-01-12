@@ -17,14 +17,12 @@ services:
 
 # Container da aplicação
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: rentx    
+    restart: always
     ports:
       - 3333:3333
-      - 9229:9229
-    tty: true  
+      - 9229:9229    
     volumes:
     # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
       - .:/usr/app    
@@ -38,8 +36,6 @@ services:
     # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
     depends_on:
       - database_rentx
-
-    restart: always
 
 # Volume local onde será armazenado o driver do Postgres
 volumes:

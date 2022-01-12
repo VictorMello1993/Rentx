@@ -1,7 +1,8 @@
 import { app } from '@shared/infra/http/app';
 import { hash } from 'bcryptjs';
 import request from 'supertest';
-import { Connection, createConnection } from 'typeorm';
+import { Connection } from 'typeorm';
+import createConnection from '@shared/infra/typeorm';
 import { v4 as uuid } from 'uuid';
 
 let connection: Connection;
@@ -15,7 +16,7 @@ describe('List categories', () => {
     const id = uuid();
     const password = await hash('admin', 8);
 
-    await connection.query(`INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, driver_license) 
+    await connection.query(`INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, driver_license)
                           VALUES('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'AAAAA')`);
   });
 
