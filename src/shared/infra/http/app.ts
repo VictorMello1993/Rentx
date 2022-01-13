@@ -8,7 +8,7 @@ import { AppError } from '@shared/errors/AppError';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 
-createConnection('database_rentx');
+createConnection();
 
 const app = express();
 

@@ -1,7 +1,8 @@
 import { app } from '@shared/infra/http/app';
 import { hash } from 'bcryptjs';
 import request from 'supertest';
-import { Connection, createConnection } from 'typeorm';
+import { Connection } from 'typeorm';
+import createConnection from '@shared/infra/typeorm';
 import { v4 as uuid } from 'uuid';
 
 let connection: Connection;
