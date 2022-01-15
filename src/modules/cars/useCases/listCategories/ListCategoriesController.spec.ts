@@ -8,11 +8,11 @@ import { v4 as uuid } from 'uuid';
 let connection: Connection;
 
 describe('List categories', () => {
-  // Para que o teste passe, é preciso primeiro criar um usuário administrador
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
 
+    // Para que o teste passe, é preciso primeiro criar um usuário administrador
     const id = uuid();
     const password = await hash('admin', 8);
 
