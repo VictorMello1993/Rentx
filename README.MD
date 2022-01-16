@@ -53,7 +53,7 @@
 * [x] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
 * [x] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
 * [x] O usuário deve estar logado no sistema.
-* [] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível
+* [x] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível
 
 # Devolução de carro
 
@@ -73,17 +73,27 @@
 # Listagem de algueis para usuário
 
 **Requisitos funcionais**
-* [] Deve ser possível realizar a busca de todos os alugueis para o usuário
+* [x] Deve ser possível realizar a busca de todos os alugueis para o usuário
 
 **Regras de negócio**
-* [] O usuário deve estar logado na aplicação
+* [x] O usuário deve estar logado na aplicação
+
+# Recuperação de senha
+**Requisitos funcionais**
+* [] Deve ser possível o usuário recuperar a senha informando o e-mail
+* [] O usuário deve receber e-mail com o passo a passo para a recuperação de senha
+* [] O usuário deve conseguir inserir uma nova senha
+
+**Regras de negócio**
+* [] O usuário precisa informar uma nova senha
+* [] O link enviado para a recuperação deve expirar em 3 horas
 
 ## Link dos enpoints
 
 **Insomnia**
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rentx%20-%20Ignite%20Rocketseat&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2Fed3660a8b692828ec6b08f3fe6ab793e%2Fraw%2F7ffe82e67c94b355f68cf801386c92e266aa0697%2FInsomnia_2021-12-13.json)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rentx%20-%20Rocketseat%20-%20Node.js&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2Fd5551335476de7f0a0037a7eb3f62761%2Fraw%2F440e1793da91019f40615f022206bab853ecb8bd%2Fgistfile1.txt)
 
 **Postman**
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/91f8ed5e22767635c704?action=collection%2Fimport)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3d5f051d0d1da11ec00b?action=collection%2Fimport)
