@@ -12,6 +12,8 @@ import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/R
 import { IRentalsRepository } from '@modules/rentals/repositories/interfaces/IRentalsRepository';
 import { container } from 'tsyringe';
 import '@shared/container/providers';
+import { IUsersTokensRepository } from '@modules/accounts/repositories/interfaces/IUsersTokensRepository';
+import { UsersTokensRepository } from '@modules/accounts/infra/typeorm/repositories/UsersTokensRepository';
 
 // Injeção de dependência de categorias - ICategoriesRepository
 container.registerSingleton<ICategoriesRepository>('CategoriesRepository', CategoriesRepository);
@@ -30,3 +32,6 @@ container.registerSingleton<ICarsImagesRepository>('CarsImagesRepository', CarsI
 
 // Injeção de dependência de alugueis - IRentalsRepository
 container.registerSingleton<IRentalsRepository>('RentalsRepository', RentalsRepository);
+
+// Injeção de dependência de refresh token - IUsersTokensRepository
+container.registerSingleton<IUsersTokensRepository>('UsersTokensRepository', UsersTokensRepository);
