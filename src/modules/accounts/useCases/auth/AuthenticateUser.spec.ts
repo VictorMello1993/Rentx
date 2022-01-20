@@ -1,18 +1,24 @@
 import { AppError } from '@shared/errors/AppError';
 import { ICreateUserDTO } from '@modules/accounts/DTOs/ICreateUserDTO';
 import { UsersRepositoryFake } from '@modules/accounts/repositories/fakes/UsersRepositoryFake';
+import { UsersTokensRepositoryFake } from '@modules/accounts/repositories/fakes/UsersTokensRepositoryFake';
+import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
-let usersRepositoryFake: UsersRepositoryFake;
 let createUserUseCase: CreateUserUseCase;
+let usersRepositoryFake: UsersRepositoryFake;
+let userTokensRepositoryFake: UsersTokensRepositoryFake;
+let dateProvider: DayjsDateProvider;
 
 describe('Authenticate User', () => {
   beforeEach(() => {
     usersRepositoryFake = new UsersRepositoryFake();
-    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepositoryFake);
+    userTokensRepositoryFake = new UsersTokensRepositoryFake();
+    dateProvider = new DayjsDateProvider();
     createUserUseCase = new CreateUserUseCase(usersRepositoryFake);
+    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepositoryFake, userTokensRepositoryFake, dateProvider);
   });
 
   it('It should be able to authenticate an user', async () => {

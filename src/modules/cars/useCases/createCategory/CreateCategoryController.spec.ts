@@ -36,7 +36,7 @@ describe('Create Category Controller', () => {
 
     console.log(responseToken.body);
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     // Cadastrando categoria
     const response = await request(app)
@@ -45,7 +45,7 @@ describe('Create Category Controller', () => {
         name: 'Category supertest',
         description: 'Category Supertest desc',
       })
-      .set({ Authorization: `Bearer ${token}` });
+      .set({ Authorization: `Bearer ${refresh_token}` });
 
     expect(response.status).toBe(201);
   });
@@ -59,7 +59,7 @@ describe('Create Category Controller', () => {
 
     console.log(responseToken.body);
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     // Cadastrando categoria
     const response = await request(app)
@@ -68,7 +68,7 @@ describe('Create Category Controller', () => {
         name: 'Category supertest',
         description: 'Category Supertest desc',
       })
-      .set({ Authorization: `Bearer ${token}` });
+      .set({ Authorization: `Bearer ${refresh_token}` });
 
     expect(response.status).toBe(400);
   });

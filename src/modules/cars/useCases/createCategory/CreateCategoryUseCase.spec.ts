@@ -1,23 +1,6 @@
-// // Exemplo de teste
-// describe('Criar categoria', () => {
-//   it('Espero que 2 + 2 seja 4', () => {
-//     const soma = 2 + 2;
-//     const resultado = 4;
-
 import { AppError } from '@shared/errors/AppError';
 import { CategoriesRepositoryFake } from '@modules/cars/repositories/fakes/CategoriesRepositoryFake';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
-
-//     expect(soma).toBe(resultado);
-//   });
-
-//   it('Espero que 2 + 2 não seja 5', () => {
-//     const soma = 2 + 2 + 5;
-//     const resultado = 5;
-
-//     expect(soma).not.toBe(resultado);
-//   });
-// });
 
 let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryFake: CategoriesRepositoryFake;

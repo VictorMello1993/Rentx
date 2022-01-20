@@ -36,7 +36,7 @@ describe('List categories', () => {
 
     console.log(responseToken.body);
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     // Cadastrando categoria
     await request(app)
@@ -45,9 +45,9 @@ describe('List categories', () => {
         name: 'Category supertest',
         description: 'Category Supertest desc',
       })
-      .set({ Authorization: `Bearer ${token}` });
+      .set({ Authorization: `Bearer ${refresh_token}` });
 
-    // Listando categoria
+    // Listando categorias
     const response = await request(app).get('/categories');
 
     console.log(response.body);
