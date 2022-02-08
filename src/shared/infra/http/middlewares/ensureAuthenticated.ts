@@ -10,7 +10,6 @@ interface IPayload {
 
 export async function ensureAuthenticated(request: Request, response: Response, next: NextFunction): Promise<void> {
   const bearer = request.headers.authorization; // Obtendo o token do header da requisição
-  const userTokensRepository = new UsersTokensRepository();
 
   if (!bearer) {
     throw new AppError('Token missing', 401);
@@ -22,13 +21,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
   const [, token] = bearer.split(' ');
 
   try {
-    const { sub: user_id } = verify(token, auth.secret_refresh_token) as IPayload;
-
-    const user = await userTokensRepository.findByUserIdAndRefreshToken(user_id, token);
-
-    if (!user) {
-      throw new AppError('User does not exist!', 401);
-    }
+    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
     /* Aqui é preciso sobrescrever a tipagem da biblioteca do Express para declarar a propriedade user que não 
     existe no Request da biblioteca do Express original. */
