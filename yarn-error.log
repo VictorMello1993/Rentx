@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @types/nodemailer -D
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add aws-sdk
 
 PATH: 
-  C:\Users\Victor93\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Victor93\bin;D:\Oracle\dbhomeXE\bin;C:\Program Files\Eclipse Adoptium\jdk-11.0.13.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jdk-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jre-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jre-11.0.13.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jre-8.0.312.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\dotnet;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\Victor93\AppData\Local\Microsoft\WindowsApps;C:\Users\Victor93\.dotnet\tools;C:\Users\Victor93\AppData\Roaming\npm;C:\Users\Victor93\AppData\Local\Yarn\bin;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Users\Victor93\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Victor93\bin;C:\Python310\Scripts;C:\Python310;D:\Oracle\dbhomeXE\bin;C:\Program Files\Eclipse Adoptium\jdk-11.0.13.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jdk-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jre-8.0.312.7-hotspot\bin;C:\Program Files\Eclipse Adoptium\jre-11.0.13.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jre-8.0.312.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\dotnet;C:\Users\Victor93\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\Victor93\AppData\Local\Microsoft\WindowsApps;C:\Users\Victor93\.dotnet\tools;C:\Users\Victor93\AppData\Local\Yarn\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\Victor93\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Victor93\AppData\Roaming\npm;C:\tools\Cmder;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.15
 
 Node version: 
-  16.13.1
+  16.13.2
 
 Platform: 
   win32 x64
@@ -21,7 +21,7 @@ npm manifest:
     "scripts": {
       "dev": "ts-node-dev -r tsconfig-paths/register --inspect=0.0.0.0:9229 --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
       "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-      "test": "set NODE_ENV=test&&jest --runInBand --detectOpenHandles",
+      "test": "set NODE_ENV=test&&jest --runInBand --forceExit",
       "seed:admin": "ts-node-dev src/shared/infra/typeorm/seeds/admin.ts"
     },
     "devDependencies": {
@@ -30,6 +30,7 @@ npm manifest:
       "@types/jest": "^27.4.0",
       "@types/jsonwebtoken": "^8.5.5",
       "@types/multer": "^1.4.7",
+      "@types/nodemailer": "^6.4.4",
       "@types/supertest": "^2.0.11",
       "@types/swagger-ui-express": "^4.1.3",
       "@types/uuid": "^8.3.1",
@@ -57,10 +58,11 @@ npm manifest:
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
       "formidable": "^2.0.1",
+      "handlebars": "^4.7.7",
       "jsonwebtoken": "^8.5.1",
       "multer": "^1.4.3",
       "nodemailer": "^6.7.2",
-      "pg": "^8.7.1",
+      "pg": "^8.7.3",
       "reflect-metadata": "^0.1.13",
       "swagger-ui-express": "^4.1.6",
       "tsyringe": "^4.6.0",
@@ -803,6 +805,13 @@ Lockfile:
     version "17.0.9"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.9.tgz#0b7f161afb5b1cc12518d29b2cdc7175d5490628"
     integrity sha512-5dNBXu/FOER+EXnyah7rn8xlNrfMOQb/qXnw4NQgLkCygKBKhdmF/CA5oXVOKZLBEahw8s2WP9LxIcN/oDDRgQ==
+  
+  "@types/nodemailer@^6.4.4":
+    version "6.4.4"
+    resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-6.4.4.tgz#c265f7e7a51df587597b3a49a023acaf0c741f4b"
+    integrity sha512-Ksw4t7iliXeYGvIQcSIgWQ5BLuC/mljIEbjf615svhZL10PE9t+ei8O9gDaD3FPCasUJn9KTLwz2JFJyiiyuqw==
+    dependencies:
+      "@types/node" "*"
   
   "@types/prettier@^2.1.5":
     version "2.4.3"
@@ -2337,6 +2346,18 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
     integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
   
+  handlebars@^4.7.7:
+    version "4.7.7"
+    resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+    integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
+    dependencies:
+      minimist "^1.2.5"
+      neo-async "^2.6.0"
+      source-map "^0.6.1"
+      wordwrap "^1.0.0"
+    optionalDependencies:
+      uglify-js "^3.1.4"
+  
   has-bigints@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/has-bigints/-/has-bigints-1.0.1.tgz#64fe6acb020673e3b78db035a5af69aa9d07b113"
@@ -3460,6 +3481,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
     integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
   
+  neo-async@^2.6.0:
+    version "2.6.2"
+    resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+    integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+  
   node-int64@^0.4.0:
     version "0.4.0"
     resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
@@ -3697,10 +3723,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/pg-int8/-/pg-int8-1.0.1.tgz#943bd463bf5b71b4170115f80f8efc9a0c0eb78c"
     integrity sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==
   
-  pg-pool@^3.4.1:
-    version "3.4.1"
-    resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-3.4.1.tgz#0e71ce2c67b442a5e862a9c182172c37eda71e9c"
-    integrity sha512-TVHxR/gf3MeJRvchgNHxsYsTCHQ+4wm3VIHSS19z8NC0+gioEhq1okDY1sm/TYbfoP6JLFx01s0ShvZ3puP/iQ==
+  pg-pool@^3.5.1:
+    version "3.5.1"
+    resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-3.5.1.tgz#f499ce76f9bf5097488b3b83b19861f28e4ed905"
+    integrity sha512-6iCR0wVrro6OOHFsyavV+i6KYL4lVNyYAB9RD18w66xSzN+d8b66HiwuP30Gp1SH5O9T82fckkzsRjlrhD0ioQ==
   
   pg-protocol@^1.5.0:
     version "1.5.0"
@@ -3718,15 +3744,15 @@ Lockfile:
       postgres-date "~1.0.4"
       postgres-interval "^1.1.0"
   
-  pg@^8.7.1:
-    version "8.7.1"
-    resolved "https://registry.yarnpkg.com/pg/-/pg-8.7.1.tgz#9ea9d1ec225980c36f94e181d009ab9f4ce4c471"
-    integrity sha512-7bdYcv7V6U3KAtWjpQJJBww0UEsWuh4yQ/EjNf2HeO/NnvKjpvhEIe/A/TleP6wtmSKnUnghs5A9jUoK6iDdkA==
+  pg@^8.7.3:
+    version "8.7.3"
+    resolved "https://registry.yarnpkg.com/pg/-/pg-8.7.3.tgz#8a5bdd664ca4fda4db7997ec634c6e5455b27c44"
+    integrity sha512-HPmH4GH4H3AOprDJOazoIcpI49XFsHCe8xlrjHkWiapdbHK+HLtbm/GQzXYAZwmPju/kzKhjaSfMACG+8cgJcw==
     dependencies:
       buffer-writer "2.0.0"
       packet-reader "1.0.0"
       pg-connection-string "^2.5.0"
-      pg-pool "^3.4.1"
+      pg-pool "^3.5.1"
       pg-protocol "^1.5.0"
       pg-types "^2.1.0"
       pgpass "1.x"
@@ -4623,6 +4649,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
     integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
   
+  uglify-js@^3.1.4:
+    version "3.14.5"
+    resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.14.5.tgz#cdabb7d4954231d80cb4a927654c4655e51f4859"
+    integrity sha512-qZukoSxOG0urUTvjc2ERMTcAy+BiFh3weWAkeurLwjrCba73poHmG3E36XEjd/JGukMzwTL7uCxZiAexj8ppvQ==
+  
   unbox-primitive@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
@@ -4758,6 +4789,11 @@ Lockfile:
     version "1.2.3"
     resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
     integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  
+  wordwrap@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+    integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
   
   wrap-ansi@^7.0.0:
     version "7.0.0"
