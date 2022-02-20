@@ -1,4 +1,4 @@
-import { container } from 'tsyringe';
+import { container, delay } from 'tsyringe';
 import { IDateProvider } from './DateProvider/IDateProvider';
 import { DayjsDateProvider } from './DateProvider/implementations/DayjsDateProvider';
 import { IMailProvider } from './MailProvider/IMailProvider';
@@ -10,7 +10,12 @@ import { IStorageProvider } from './StorageProvider/IStorageProvider';
 container.registerSingleton<IDateProvider>('DayjsDateProvider', DayjsDateProvider);
 container.registerInstance<IMailProvider>('EtherealMailProvider', new EtherealMailProvider());
 
-container.registerInstance<IStorageProvider>(
+const storage = {
+  local: LocalStorageProvider,
+  s3: S3StorageProvider,
+};
+
+container.registerSingleton<IStorageProvider>(
   'StorageProvider',
-  process.env.disk === 'local' ? new LocalStorageProvider() : new S3StorageProvider(),
+  delay(() => storage[process.env.disk]),
 );
