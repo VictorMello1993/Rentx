@@ -7,6 +7,7 @@ import '@shared/container';
 import { AppError } from '@shared/errors/AppError';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
+import upload from '../../../config/upload';
 
 createConnection();
 
@@ -17,6 +18,10 @@ app.use(router);
 
 // Documentação do Swagger
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerFile));
+
+// Localizando arquivos estáticos
+app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
+app.use('/cars', express.static(`${upload.tmpFolder}/cars`));
 
 // Middleware de erro
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
