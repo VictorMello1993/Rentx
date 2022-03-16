@@ -80,13 +80,13 @@
 
 # Recuperação de senha
 **Requisitos funcionais**
-* [] Deve ser possível o usuário recuperar a senha informando o e-mail
-* [] O usuário deve receber e-mail com o passo a passo para a recuperação de senha
-* [] O usuário deve conseguir inserir uma nova senha
+* [x] Deve ser possível o usuário recuperar a senha informando o e-mail
+* [x] O usuário deve receber e-mail com o passo a passo para a recuperação de senha
+* [x] O usuário deve conseguir inserir uma nova senha
 
 **Regras de negócio**
-* [] O usuário precisa informar uma nova senha
-* [] O link enviado para a recuperação deve expirar em 3 horas
+* [x] O usuário precisa informar uma nova senha
+* [x] O link enviado para a recuperação deve expirar em 3 horas
 
 ## Link dos enpoints
 
