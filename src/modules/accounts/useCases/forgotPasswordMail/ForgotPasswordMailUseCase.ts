@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { resolve } from 'path';
 
 @injectable()
-class ForgotPasswordUseCase {
+class ForgotPasswordMailUseCase {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -52,4 +52,4 @@ class ForgotPasswordUseCase {
   }
 }
 
-export { ForgotPasswordUseCase };
+export { ForgotPasswordMailUseCase };
