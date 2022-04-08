@@ -3,9 +3,9 @@ import { UsersTokensRepositoryFake } from '@modules/accounts/repositories/fakes/
 import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
 import { MailProviderFake } from '@shared/container/providers/MailProvider/fakes/MailProviderFake';
 import { AppError } from '@shared/errors/AppError';
-import { ForgotPasswordUseCase } from './ForgotPasswordMailUseCase';
+import { ForgotPasswordMailUseCase } from './ForgotPasswordMailUseCase';
 
-let forgotPasswordUseCase: ForgotPasswordUseCase;
+let forgotPasswordUseCase: ForgotPasswordMailUseCase;
 let usersRepositoryFake: UsersRepositoryFake;
 let dateProvider: DayjsDateProvider;
 let usersTokensRepositoryFake: UsersTokensRepositoryFake;
@@ -18,7 +18,7 @@ describe('Send forgot mail', () => {
     usersTokensRepositoryFake = new UsersTokensRepositoryFake();
     mailProviderFake = new MailProviderFake();
 
-    forgotPasswordUseCase = new ForgotPasswordUseCase(
+    forgotPasswordUseCase = new ForgotPasswordMailUseCase(
       usersRepositoryFake,
       usersTokensRepositoryFake,
       dateProvider,
