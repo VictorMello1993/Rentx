@@ -32,6 +32,6 @@ jobs:
           username: ${{ secrets.SSH_USER_EC2_IGNITE_NODE }}          
           port: ${{ secrets.SSH_PORT_EC2_IGNITE_NODE }}
           key: ${{ secrets.SSH_KEY }}          
-          source: "., !node_modules" #Copiando todo o projeto exceto node_modules
+          source: "., !node_modules" 
           target: "test"
       
