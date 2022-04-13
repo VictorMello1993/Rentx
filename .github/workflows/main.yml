@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}          
           key: ${{ secrets.SSH_KEY }}          
           port: ${{ secrets.SSH_PORT }}          
-          source: "., !node_modules" 
+          source: "., !node_modules, !ormconfig.json, !docker-compose.yaml" 
           target: "~/app/Rentx"
          
       #Atualizando a aplicação (ex: atualizando as dependências na pasta node_modules, rodando migrations e restartando a aplicação)   
