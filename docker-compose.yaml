@@ -36,7 +36,13 @@ services:
     # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
     depends_on:
       - database_rentx
-      
+
+# Container do Redis
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
 # Volume local onde será armazenado o driver do Postgres
 volumes:
   pgdata:

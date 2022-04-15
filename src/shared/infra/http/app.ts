@@ -10,6 +10,7 @@ import cors from 'cors';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 import upload from '../../../config/upload';
+import rateLimiter from './middlewares/rateLimiter';
 
 createConnection();
 
@@ -18,6 +19,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+app.use(rateLimiter);
 
 app.use(router);
 
