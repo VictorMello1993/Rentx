@@ -7,6 +7,8 @@ import createConnection from '@shared/infra/typeorm';
 import '@shared/container';
 import { AppError } from '@shared/errors/AppError';
 import cors from 'cors';
+import * as Sentry from '@sentry/node';
+import * as Tracing from '@sentry/tracing';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 import upload from '../../../config/upload';
@@ -16,10 +18,22 @@ createConnection();
 
 const app = express();
 
+app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.tracingHandler());
+
 app.use(rateLimiter);
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  integrations: [new Sentry.Integrations.Http({ tracing: true }), new Tracing.Integrations.Express({ app })],
+
+  tracesSampleRate: 1.0,
+});
+
 app.use(express.json());
 app.use(cors());
 app.use(router);
+app.use(Sentry.Handlers.errorHandler());
 
 // Documentação do Swagger
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerFile));
