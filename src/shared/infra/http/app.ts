@@ -6,15 +6,19 @@ import swagger from 'swagger-ui-express';
 import createConnection from '@shared/infra/typeorm';
 import '@shared/container';
 import { AppError } from '@shared/errors/AppError';
+import cors from 'cors';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 import upload from '../../../config/upload';
+import rateLimiter from './middlewares/rateLimiter';
 
 createConnection();
 
 const app = express();
 
+app.use(rateLimiter);
 app.use(express.json());
+app.use(cors());
 app.use(router);
 
 // Documentação do Swagger
