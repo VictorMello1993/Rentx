@@ -16,26 +16,26 @@ services:
       - pgdata:/data/postgres
 
 # Container da aplicação
-  app:
-    build: .      
-    container_name: rentx    
-    restart: always
-    ports:
-      - 3333:3333
-      - 9229:9229
-    volumes:
-    # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
-      - .:/usr/app    
+  # app:
+  #   build: .      
+  #   container_name: rentx    
+  #   restart: always
+  #   ports:
+  #     - 3333:3333
+  #     - 9229:9229
+  #   volumes:
+  #   # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
+  #     - .:/usr/app    
     
-    # Faz uma ligação entre os containers, de forma que o container de destino (api) tenha informações do container de
-    # origem (banco de dados). Dessa forma, o service da api não irá se comunicar através do IP, mas sim pelo nome
-    # do container.
-    links:
-      - database_rentx
+  #   # Faz uma ligação entre os containers, de forma que o container de destino (api) tenha informações do container de
+  #   # origem (banco de dados). Dessa forma, o service da api não irá se comunicar através do IP, mas sim pelo nome
+  #   # do container.
+  #   links:
+  #     - database_rentx
     
-    # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
-    depends_on:
-      - database_rentx
+  #   # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
+  #   depends_on:
+  #     - database_rentx
 
 # Container do Redis
   redis:
