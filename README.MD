@@ -93,7 +93,7 @@
 * Conceitos do SOLID
 * Documentação da API com Swagger
 * Docker
-* Testes unitários e de integração
+* Testes unitários e de integração com Jest
 * Construindo banco de dados da API com Typeorm (driver de banco selecionado: Postgres)
 * Modelagem de dados
 * Autenticação e autorização com JWT
