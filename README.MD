@@ -101,6 +101,8 @@
 * Envio de e-mail utilizando Ethereal e SES da AWS
 * Deploy utilizando serviços da AWS. Foram utilizados S3, EC2, SES, IAM e Route 53 
 * Pipeline CI/CD utilizando Github Actions
+* Segurança utilizando Redis com Rate Limiter para evitar ataques DDoS
+* Gerenciamento de erros utilizando Sentry
 
 # Extras
 * Serverless
