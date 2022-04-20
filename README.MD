@@ -90,7 +90,7 @@
 
 ## Conteúdos abordados
 * Construção de uma API
-* Conceitos do SOLID
+* 5 princípios SOLID
 * Documentação da API com Swagger
 * Docker
 * Testes unitários e de integração com Jest
