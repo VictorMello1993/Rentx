@@ -101,7 +101,9 @@
 * Envio de e-mail utilizando Ethereal e SES da AWS
 * Deploy utilizando serviços da AWS. Foram utilizados S3, EC2, SES, IAM e Route 53 
 * Pipeline CI/CD utilizando Github Actions
-* Serveless
+
+# Extras
+* Serverless
 * Explorando um pouco do Prisma
 
 ## Link dos enpoints
