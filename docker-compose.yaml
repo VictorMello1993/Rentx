@@ -1,50 +1,48 @@
-version: "3.7"
+version: "3.9"
 services:
-# Container do banco de dados
+  # Container do banco de dados
   database_rentx:
     image: postgres #Imagem oficial disponível no Docke Hub
     container_name: database_rentx
     restart: always
-    ports: 
+    ports:
       - 5432:5432 #Porta padrão do Postgres
     environment:
-      - POSTGRES_USER=rentxuser
-      - POSTGRES_PASSWORD=ignite
-      - POSTGRES_DB=rentx
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       # Volume que armazena o driver do postgres dentro do container
       - pgdata:/data/postgres
 
-# Container da aplicação
-  # app:
-  #   build: .      
-  #   container_name: rentx    
-  #   restart: always
-  #   ports:
-  #     - 3333:3333
-  #     - 9229:9229
-  #   volumes:
-  #   # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
-  #     - .:/usr/app    
-    
-  #   # Faz uma ligação entre os containers, de forma que o container de destino (api) tenha informações do container de
-  #   # origem (banco de dados). Dessa forma, o service da api não irá se comunicar através do IP, mas sim pelo nome
-  #   # do container.
-  #   links:
-  #     - database_rentx
-    
-  #   # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
-  #   depends_on:
-  #     - database_rentx
-
-# Container do Redis
-  redis:
-    image: redis:alpine
+  # Container da aplicação
+  app:
+    build: .
+    container_name: rentx
+    restart: always
     ports:
-      - 6379:6379
+      - 3333:3333
+      - 9229:9229
+    volumes:
+      # Criando um volume passando os arquivos que estão no diretório atual da máquina local para o diretório do container
+      - .:/usr/app
 
-# Volume local onde será armazenado o driver do Postgres
+    # Faz uma ligação entre os containers, de forma que o container de destino (api) tenha informações do container de
+    # origem (banco de dados). Dessa forma, o service da api não irá se comunicar através do IP, mas sim pelo nome
+    # do container.
+    links:
+      - database_rentx
+
+    # Essa propriedade indica que para executar o service da aplicação, é preciso primeiro executar o service do banco de dados
+    depends_on:
+      - database_rentx
+  # Container do Redis
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - 6379:6379
+
+  # Volume local onde será armazenado o driver do Postgres
 volumes:
   pgdata:
-    driver: local 
-
+    driver: local
