@@ -88,6 +88,26 @@
 * [x] O usuário precisa informar uma nova senha
 * [x] O link enviado para a recuperação deve expirar em 3 horas
 
+## Conteúdos abordados
+* Construção de uma API
+* 5 princípios SOLID
+* Documentação da API com Swagger
+* Docker
+* Testes unitários e de integração com Jest
+* Construindo banco de dados da API com Typeorm (driver de banco selecionado: Postgres)
+* Modelagem de dados
+* Autenticação e autorização com JWT
+* Refresh token
+* Envio de e-mail utilizando Ethereal e SES da AWS
+* Deploy utilizando serviços da AWS. Foram utilizados S3, EC2, SES, IAM e Route 53 
+* Pipeline CI/CD utilizando Github Actions
+* Segurança utilizando Redis e Rate Limiter para evitar ataques DDoS
+* Gerenciamento de erros utilizando Sentry
+
+# Extras
+* Serverless
+* Explorando um pouco do Prisma
+
 ## Link dos enpoints
 
 **Insomnia**
