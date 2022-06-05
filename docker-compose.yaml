@@ -37,11 +37,10 @@ services:
     depends_on:
       - database_rentx
   # Container do Redis
-  # redis:
-  #   image: redis:alpine
-  #   ports:
-  #     - 6379:6379
-
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
   # Volume local onde será armazenado o driver do Postgres
 volumes:
   pgdata:
