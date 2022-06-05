@@ -12,7 +12,7 @@ import * as Tracing from '@sentry/tracing';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 import upload from '../../../config/upload';
-// import rateLimiter from './middlewares/rateLimiter';
+import rateLimiter from './middlewares/rateLimiter';
 
 createConnection();
 
@@ -21,7 +21,7 @@ const app = express();
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
-// app.use(rateLimiter);
+app.use(rateLimiter);
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
